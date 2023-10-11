@@ -9,11 +9,20 @@ class Pokemon {
         this.luck = luck
     }
 
-    isLucky {
-        
+    getSTATSpokemon() {
+        console.log('Stats de' + this.name + '-' + 'Attack:' + this.attack + ', Defense:' + this.defense + ', Hp:'+ this.hp + ', Luck:' + this.luck);
     }
 
-    attackPokemon {
+    isLucky (){
+        Math.random() 
+    }
+
+    attackPokemon () {
 
     }
 }
+
+// let Dracaufeu = new Dracaufeu ("Dracaufeu",84, 78, 78, 0.5);
+// let Bulbizarre = new Bulbizarre ("Bulbizarre",49, 49,   45, 0.7);
+
+console.log('nombre random :' + isLucky())
