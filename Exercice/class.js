@@ -14,15 +14,44 @@ class Pokemon {
     }
 
     isLucky (){
-        Math.random() 
+        let rand = Math.random() 
+
+        if (this.luck >= rand) {
+            return true
+
+        }else {
+            return false
+        }
     }
 
-    attackPokemon () {
+    attackPokemon (cible) {
+        let degat = this.attack - cible.attack
+        cible.hp = cible.hp - degat
 
     }
 }
 
-// let Dracaufeu = new Dracaufeu ("Dracaufeu",84, 78, 78, 0.5);
-// let Bulbizarre = new Bulbizarre ("Bulbizarre",49, 49,   45, 0.7);
+let Dracaufeu = new Pokemon ("Dracaufeu",84, 78, 78, 0.5);
+let Bulbizarre = new Pokemon ("Bulbizarre",49, 49, 45, 0.7);
 
-console.log('nombre random :' + isLucky())
+
+while (Dracaufeu.hp > 0 && Bulbizarre.hp > 0) {
+    
+    if (Dracaufeu.isLucky()) {
+        Dracaufeu.attackPokemon(Bulbizarre)
+        console.log('Bulbizarre à subit ' + Dracaufeu.attack + ' et il reste ' + Bulbizarre.hp + ' à Bulbizarre')
+    }else {
+        console.log("Dracaufeu a raté son coup")
+    }
+    
+    
+    if (Bulbizarre.isLucky()) {
+        Bulbizarre.attackPokemon(Dracaufeu)
+        console.log('Dracaufeu à subit ' + Bulbizarre.attack + ' et il reste ' + Dracaufeu.hp + ' à Dracaufeu')
+
+    }else {
+        console.log("Bulbizarre a raté son coup")
+
+    }
+
+}
